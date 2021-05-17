@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/item',[App\Http\Controllers\ItemController::class, 'index']);
+Route::get('/item/{id}',[App\Http\Controllers\ItemController::class, 'show']);
+Route::get('/item/create',[App\Http\Controllers\ItemController::class, 'create']);
+Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);
+Route::delete('/item/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
