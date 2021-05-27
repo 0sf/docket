@@ -23,7 +23,9 @@ Route::get('/item/create',[App\Http\Controllers\ItemController::class, 'create']
 Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);
 Route::delete('/item/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);
 
-
+Route::get('/create', function () {
+    return view('forms/create_new_task_form');
+});
 
 
 
