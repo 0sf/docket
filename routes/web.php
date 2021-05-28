@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+ profile
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -32,10 +33,14 @@ Route::delete('/item/{id}',[App\Http\Controllers\ItemController::class, 'destroy
 Route::get('/edit/{id}','App\Http\Controllers\ProfileController@edit')->name('profile.edit');
 Route::post('/update','App\Http\Controllers\ProfileController@update')->name('profile.update');
 Route::get('/delete/{id}','App\Http\Controllers\ProfileController@destroy')->name('profile.destroy');
-
-
+ development
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/task',[App\Http\Controllers\TaskController::class, 'index']);
+Route::get('/task/{id}',[App\Http\Controllers\ItemController::class, 'show']);
+Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create']);
+Route::post('/task',[App\Http\Controllers\TaskController::class, 'store']);
+Route::delete('/task/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);
