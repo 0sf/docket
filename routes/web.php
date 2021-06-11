@@ -34,8 +34,6 @@ Route::get('/edit/{id}','App\Http\Controllers\ProfileController@edit')->name('pr
 Route::post('/update','App\Http\Controllers\ProfileController@update')->name('profile.update');
 Route::get('/delete/{id}','App\Http\Controllers\ProfileController@destroy')->name('profile.destroy');
 
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
