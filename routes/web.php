@@ -19,10 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile.profile');
 });
 Route::get('/show', function () {
-    return view('show');
+    return view('profile.show');
 });
 Route::get('/item',[App\Http\Controllers\ItemController::class, 'index']);
 Route::get('/item/{id}',[App\Http\Controllers\ItemController::class, 'show']);

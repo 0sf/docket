@@ -18,15 +18,15 @@ class ProfileController extends Controller
     public function show($id)
     {
         $users=User::find($id);
-        return view('show')->with('user',$users);
+        return view('profile.show')->with('user',$users);
     }
-    
+
     public function edit($id){
         $profiles=User::find($id);
-        return view('profile',['profiles'=>$profiles]);
+        return view('profile.profile',['profiles'=>$profiles]);
     }
     public function update(Request $request){
-        
+
         // $filename="";
         if($request->hasFile('image')){
             $filename="";
@@ -36,11 +36,11 @@ class ProfileController extends Controller
             $file->move('upload/profiles/',$filename);
         }
         else{
-            return redirect('show');
+            return redirect('/show');
         }
 
         DB::table('users')->where('id',$request->id)->update([
-            
+
             'name'=>$request->name,
             'index_no'=>$request->index_no,
             'email'=>$request->email,
@@ -48,17 +48,17 @@ class ProfileController extends Controller
             'department'=>$request->department,
             'phone_no'=>$request->phone_no,
             'image'=>$filename
-            
+
         ]);
-        
+
         Session::flash('success','Details has been updated successfully!');
-        return redirect('show');
+        return redirect('/show');
     }
     public function destroy($id)
     {
         $user= DB::table('users')->where('id',$id)->delete();
         Session::flash('success','Data were deleted successfully!');
         return redirect('home');
-        
+
     }
 }
