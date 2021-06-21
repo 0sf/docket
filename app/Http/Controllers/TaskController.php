@@ -37,6 +37,17 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $task=new NewTask();
+        $validatedData = $request->validate([
+            'course' => 'required',
+            'title' => 'required||unique:new_tasks',
+            'date' => 'required' ,
+            'time' => 'required',
+            'notification_type' => 'required',
+            'content' => 'required', 'max:200'
+
+
+        ]);
+
         $task->course=request('course');
         $task->title=request('title');
         $task->date=request('date');
