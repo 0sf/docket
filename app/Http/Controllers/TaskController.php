@@ -36,7 +36,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $task=new NewTask();
+
         $validatedData = $request->validate([
             'course' => 'required',
             'title' => 'required||unique:new_tasks',
@@ -47,7 +47,7 @@ class TaskController extends Controller
 
 
         ]);
-
+        $task=new NewTask();
         $task->course=request('course');
         $task->title=request('title');
         $task->date=request('date');
