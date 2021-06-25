@@ -1,22 +1,17 @@
 @extends('layouts.app')
-
 @section('content')
+@include('sidebar.dashboard')
 <div>
+    {{$item->name}} 
+    {{$item->type}} 
+    {{$item->weight}} 
+    <br>
 
-{{$item->name}}
-{{$item->type}}
-{{$item->weight}}
-
-
-<br>
-<form action="/item/{{$item->id}}" method="post">
-@csrf
-@method('DELETE')
-<label for="">Delete</label>
-<button>Delete</button>
-</form>
-
+    <form action="/item/{{$item->id}}" method="post">
+        @csrf
+        @method('DELETE')
+        <label for="">Delete</label>
+        <button>Delete</button>
+    </form>
 </div>
-
-
 @endsection

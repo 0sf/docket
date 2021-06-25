@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
+@include('sidebar.dashboard')
+
 <div class="row">
     <div class="col-lg-3">
      @if (Auth::user()->image)

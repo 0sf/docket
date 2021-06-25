@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
+@include('sidebar.dashboard')
+
 <link rel="stylesheet" href="{{ asset('css/profileStyle.css') }}">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 

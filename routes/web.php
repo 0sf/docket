@@ -24,6 +24,7 @@ Route::get('/profile', function () {
 Route::get('/show', function () {
     return view('profile.show');
 });
+
 Route::get('/item',[App\Http\Controllers\ItemController::class, 'index']);
 Route::get('/item/{id}',[App\Http\Controllers\ItemController::class, 'show']);
 Route::get('/item/create',[App\Http\Controllers\ItemController::class, 'create']);
