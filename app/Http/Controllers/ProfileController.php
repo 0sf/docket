@@ -41,7 +41,7 @@ class ProfileController extends Controller
             'email' => 'nullable|email:rfc,dns' ,
             'faculty' => 'required',
             'department' => 'required',
-            'phone_no' => 'nullable', 'size:10',
+            'phone_no' => 'nullable|size:10',
 
         ]);
         //dd($validatedData);
