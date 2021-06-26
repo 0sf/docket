@@ -14,7 +14,7 @@ class TaskController extends Controller
         //get all the items
         //$items = Item::all();
         //$items_latest=Item:latest();
-        return View('task')->with('tasks',$task);
+        return View('task.index')->with('tasks',$task);
 
     }
 
@@ -25,7 +25,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('forms.create_new_task_form');
+        return view('task.create');
     }
 
     /**
@@ -36,6 +36,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'course' => 'required',
+            'title' => 'required||unique:new_tasks',
+            'date' => 'required' ,
+            'time' => 'required',
+            'notification_type' => 'required',
+            'content' => 'required', 'max:200'
+
+
+        ]);
         $task=new NewTask();
         $task->course=request('course');
         $task->title=request('title');
@@ -56,7 +67,7 @@ class TaskController extends Controller
     public function show($id)
     {
          $item=NewTask::findOrFail($id);
-        return view('items.show',['item'=>$item] );
+        return view('task.show',['task'=>$task] );
     }
 
     /**

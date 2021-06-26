@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Types\Nullable;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -15,32 +17,42 @@ class ProfileController extends Controller
     {
         return view('login');
     }
+    public function store(Request $request)
+    {
+
+    }
+
     public function show($id)
     {
         $users=User::find($id);
-        return view('show')->with('user',$users);
+        return view('profile.show')->with('user',$users);
     }
-    
+
     public function edit($id){
         $profiles=User::find($id);
-        return view('profile',['profiles'=>$profiles]);
+        return view('profile.profile',['profiles'=>$profiles]);
     }
-    public function update(Request $request){
-        
-        // $filename="";
+    public function update(Request $request)
+    {
+        $filename="";
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'index_no' => 'required|unique:users',
+            'email' => 'nullable|email:rfc,dns' ,
+            'faculty' => 'required',
+            'department' => 'required',
+            'phone_no' => 'nullable', 'size:10',
+
+        ]);
+        //dd($validatedData);
         if($request->hasFile('image')){
-            $filename="";
             $file = $request->file('image');
             $extension=$file->getClientOriginalExtension();
             $filename=time().'.'.$extension;
             $file->move('upload/profiles/',$filename);
         }
-        else{
-            return redirect('show');
-        }
 
         DB::table('users')->where('id',$request->id)->update([
-            
             'name'=>$request->name,
             'index_no'=>$request->index_no,
             'email'=>$request->email,
@@ -48,17 +60,21 @@ class ProfileController extends Controller
             'department'=>$request->department,
             'phone_no'=>$request->phone_no,
             'image'=>$filename
-            
         ]);
-        
+
+
+
+        // $filename="";
+
+
         Session::flash('success','Details has been updated successfully!');
-        return redirect('show');
+        return redirect('/show');
     }
     public function destroy($id)
     {
         $user= DB::table('users')->where('id',$id)->delete();
         Session::flash('success','Data were deleted successfully!');
         return redirect('home');
-        
+
     }
 }
