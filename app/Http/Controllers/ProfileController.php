@@ -37,7 +37,7 @@ class ProfileController extends Controller
         $filename="";
         $validatedData = $request->validate([
             'name' => 'required',
-            'index_no' => 'required|unique:users',
+            'index_no' => 'required|unique:users,index_no,'.$request->id,
             'email' => 'nullable|email:rfc,dns' ,
             'faculty' => 'required',
             'department' => 'required',
