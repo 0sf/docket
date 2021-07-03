@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('auth/login');
 });
- profile
+
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -33,7 +33,7 @@ Route::delete('/item/{id}',[App\Http\Controllers\ItemController::class, 'destroy
 Route::get('/edit/{id}','App\Http\Controllers\ProfileController@edit')->name('profile.edit');
 Route::post('/update','App\Http\Controllers\ProfileController@update')->name('profile.update');
 Route::get('/delete/{id}','App\Http\Controllers\ProfileController@destroy')->name('profile.destroy');
- development
+//  development
 
 
 Auth::routes();

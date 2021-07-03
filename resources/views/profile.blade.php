@@ -9,6 +9,7 @@
         {{ __('Profile') }}
     </h2>
 </x-slot>
+<div class="container-fluid">
 <form data-parsley-validate class="" method="POST" action="{{route('profile.update')}}" enctype="multipart/form-data">
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
@@ -53,7 +54,7 @@
     </div>
 </form>
 </div>
-</div>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
