@@ -26,7 +26,7 @@ body {
 	text-align: center;
 }
 .forms form { padding: 30px; }
-#signup { display: none; }
+#login { display: none; }
 .forms .tab-group {
 	list-style: none;
 	padding: 0;
