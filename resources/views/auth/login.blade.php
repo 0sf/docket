@@ -138,7 +138,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -151,6 +151,7 @@
             var href = $(this).attr('href');
             $('.forms > form').hide();
             $(href).fadeIn(500);
+            
         });
     });
 </script>
