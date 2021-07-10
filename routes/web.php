@@ -28,9 +28,9 @@ Route::get('/edit/{id}','App\Http\Controllers\ProfileController@edit')->name('pr
 Route::post('/update','App\Http\Controllers\ProfileController@update')->name('profile.update');
 Route::get('/delete/{id}','App\Http\Controllers\ProfileController@destroy')->name('profile.destroy');
 //  development
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
 
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['as'=>'admin.','namespace'=>'Admin','middleware'=>['auth','admin']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
@@ -39,7 +39,6 @@ Route::group(['as'=>'admin.','namespace'=>'Admin','middleware'=>['auth','admin']
     Route::post('task',[App\Http\Controllers\TaskController::class, 'store']);
     Route::delete('task/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);
     Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create']);
-
 });
 Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=>['auth','user']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
