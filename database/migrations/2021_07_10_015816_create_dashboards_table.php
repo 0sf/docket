@@ -15,6 +15,8 @@ class CreateDashboardsTable extends Migration
     {
         Schema::create('dashboards', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
+            $table->string('task_id');
             $table->timestamps();
         });
     }

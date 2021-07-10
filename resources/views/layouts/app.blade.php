@@ -93,4 +93,12 @@
         </main>
     </div>
 </body>
+<script>
+    function toggleFunction(){
+        var toggleButton = document.getElementById('toggleButton');
+        if(toggleButton.innerHTML === 'Mark as Done'){
+            toggleButton.innerHTML = 'Completed';
+        }
+    }
+</script>
 </html>

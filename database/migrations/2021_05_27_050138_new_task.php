@@ -21,6 +21,7 @@ class NewTask extends Migration
         $table->date('date');
         $table->string('notification_type');
         $table->string('content');
+        $table->string('user_id');
         $table->timestamps();
     });
     }

@@ -46,7 +46,7 @@
                             <img src="">
                             <h5 class="card-title font-weight-bold">{{ $task->title }}</h5>
                             <p class="card-text" aria-placeholder="Description">{{ $task->content }}</p>
-                            <a href="#" class="btn btn-primary float-right bg-success">Mark as Done</a>
+                            <a href="#" class="btn btn-primary float-right bg-success" id="toggleButton" onclick="toggleFunction()">Mark as Done</a>
                         </div>
                     </div>
                 </div>
@@ -85,5 +85,6 @@
         <p class="task_created">{{ session('message') }}</p>
 
     </div>
-    </div>
+    
+    </div>    
 @endsection
