@@ -1,21 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid">
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-4">
      @if (Auth::user()->image)
 
-                    <img src="{{('/upload/profiles/'.Auth::user()->image)}}" class="rounded-circle mt-5" width="90%" style="position: relative; left:750px; top:10px">
+                    <img src="{{('/upload/profiles/'.Auth::user()->image)}}" class="rounded-circle mt-5" width="90%" style="position: relative; left:25%;  top:15%">
 
                     @else
 
-                    <img class="no-image" width="350" style="position: relative; left:800px; top:50px"  src="/upload/default/default.png" alt="No Picture">
+                    <img class="no-image" width="350" style="position: relative; left:25%;  top:15%"  src="/upload/default/default.png" alt="No Picture">
 
                     @endif
         <!-- <img src={{('/upload/profiles/'.Auth::user()->image)}} class="img-thumbnail" width="400" style="position: relative; left:800px; top:50px"> -->
     </div>
-    <div class="col-lg-9">
-        <table style="font-size: large; margin-left:-20%;  margin-top:2%;">
+
+    <div class="col-md-8">
+        <table style="font-size: large; margin-left:20%;  margin-top:5%;">
             <tr style="line-height: 50px;">
                 <td><b>Name</b></td>
                 <td>&nbsp;: {{Auth::user()->name}}</td><br>
@@ -57,11 +59,40 @@
                     <a href={{ url('edit/'.Auth::user()->id)}}><button class="btn btn-lg btn-success btn-block">Edit</button></a>
                 </div>
                 <div class="col-sm-6">
-                    <a href={{ url('delete/'.Auth::user()->id)}} action="{{'profile.destroy'}}" class="btn btn-danger btn-lg btn-block">Delete</a>
+                    <a id="del" class="btn btn-danger btn-lg btn-block">Delete</a>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+</div>
+<script>
+    var del_btn=$('#del')
+    del_btn.click(()=>{Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+    del_btn.attr(href="{{'profile.destroy'}}")
+    window.location.replace("{{ url('delete/'.Auth::user()->id)}}");
+  }
+})}
+
+)
+
+</script>
+
+
 @endsection
