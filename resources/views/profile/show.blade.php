@@ -15,7 +15,7 @@
                     @endif
         <!-- <img src={{('/upload/profiles/'.Auth::user()->image)}} class="img-thumbnail" width="400" style="position: relative; left:800px; top:50px"> -->
     </div>
-    
+
     <div class="col-md-8">
         <table style="font-size: large; margin-left:20%;  margin-top:5%;">
             <tr style="line-height: 50px;">
@@ -59,7 +59,7 @@
                     <a href={{ url('edit/'.Auth::user()->id)}}><button class="btn btn-lg btn-success btn-block">Edit</button></a>
                 </div>
                 <div class="col-sm-6">
-                    <a href={{ url('delete/'.Auth::user()->id)}} action="{{'profile.destroy'}}" class="btn btn-danger btn-lg btn-block">Delete</a>
+                    <a id="del" class="btn btn-danger btn-lg btn-block">Delete</a>
                 </div>
 
             </div>
@@ -67,4 +67,32 @@
     </div>
 </div>
 </div>
+<script>
+    var del_btn=$('#del')
+    del_btn.click(()=>{Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+    del_btn.attr(href="{{'profile.destroy'}}")
+    window.location.replace("{{ url('delete/'.Auth::user()->id)}}");
+  }
+})}
+
+)
+
+</script>
+
+
 @endsection
