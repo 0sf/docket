@@ -53,14 +53,16 @@
                                 <input type="hidden" name="task_id" value="{{ $task->id }}">
                                 @foreach ($completedTasks as $completedTask)
                                     @if ($user->id == $completedTask->user_id && $task->id == $completedTask->task_id)
-                                        {{ $clicked = true }}
-                                        <button type="" disabled='true' class="btn btn-primary float-right bg-success"
-                                            id="toggleButton" onclick="toggleFunction()">Completed</button>
+                                        @php
+                                            $clicked = true
+                                        @endphp
+                                        <button type="" disabled='true' class="btn btn-primary float-right bg-success toggleButton"
+                                            onclick="toggleFunction()">Completed</button>
                                      @break
                                     @endif
                                 @endforeach
         @if ($clicked == false)
-            <button type="submit" class="btn btn-primary float-right bg-success" id="toggleButton"
+            <button type="submit" class="btn btn-primary float-right bg-success toggleButton"
                 onclick="toggleFunction()">Mark as Done</button>
         @endif
         {{ $clicked = false }}
@@ -71,7 +73,7 @@
     </div>
     @endforeach
 
-    <p class="task_created">{{ session('message') }}</p>
+{{-- <p class="task_created">{{ session('message') }}</p> --}}
 
     </div>
 @endsection

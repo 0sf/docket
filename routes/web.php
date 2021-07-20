@@ -45,7 +45,7 @@ Auth::routes();
 Route::resource('/home', HomeController::class)->name('*','home');
 Route::get('/task',[App\Http\Controllers\TaskController::class, 'index']);
 Route::get('/task/{id}',[App\Http\Controllers\ItemController::class, 'show']);
-Route::get('/');
+
 Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create']);
 Route::post('/task',[App\Http\Controllers\TaskController::class, 'store']);
 Route::delete('/task/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);
