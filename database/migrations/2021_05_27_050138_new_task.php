@@ -13,7 +13,8 @@ class NewTask extends Migration
      */
     public function up()
     {
-        //if(Schema::hasTable('new_tasks')) return;
+        //uncomment below line if you want to skip remigrating this migration file
+        if(Schema::hasTable('new_tasks')) return;
     Schema::create('new_tasks', function (Blueprint $table){
         $table->id();
         $table->string('course');

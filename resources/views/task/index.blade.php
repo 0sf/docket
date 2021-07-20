@@ -17,6 +17,4 @@
 @endforeach
 <p class="task_created">{{session('message')}}</p>
 </div>
-
-
 @endsection

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,9 +42,10 @@ Route::get('/delete/{id}','App\Http\Controllers\ProfileController@destroy')->nam
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/home', HomeController::class)->name('*','home');
 Route::get('/task',[App\Http\Controllers\TaskController::class, 'index']);
 Route::get('/task/{id}',[App\Http\Controllers\ItemController::class, 'show']);
+Route::get('/');
 Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create']);
 Route::post('/task',[App\Http\Controllers\TaskController::class, 'store']);
 Route::delete('/task/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);

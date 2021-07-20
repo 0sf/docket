@@ -3,32 +3,112 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\NewTask;
+use App\Models\Home;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display a listing of the resource.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
+
     public function __construct()
     {
         $this->middleware('auth');
+    } 
+
+    public function index()
+    {
+        $tasks = NewTask::orderBy('date')
+        ->get();
+
+        $user = Auth::user();
+        
+        return view('home', [
+            'tasks' => $tasks,
+            'user' => $user,
+        ]);
     }
 
     /**
-     * Show the application dashboard.
+     * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function create()
     {
-        $task=NewTask::orderBy('date')->get();
-        //$item_where=Item::where('type','gg')->get();
-        //get all the items
-        //$items = Item::all();
-        //$items_latest=Item:latest();
-        return View('home')->with('tasks',$task);
+        $tasks = NewTask::orderBy('date')
+        ->get();
+
+        $user = Auth::user();
+        
+        return view('home', [
+            'tasks' => $tasks,
+            'user' => $user,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $completedTasks = Home::create([
+            'user_id' => $request->input('user_id'),
+            'task_id' => $request->input('task_id')
+        ]);
+
+        return redirect('/home');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

@@ -13,7 +13,7 @@ class TaskController extends Controller
         //$item_where=Item::where('type','gg')->get();
         //get all the items
         //$items = Item::all();
-        //$items_latest=Item:latest();
+        //$items_latest=Item:latest();  
         return View('task.index')->with('tasks',$task);
 
     }
