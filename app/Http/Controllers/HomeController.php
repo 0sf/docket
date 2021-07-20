@@ -26,10 +26,16 @@ class HomeController extends Controller
         ->get();
 
         $user = Auth::user();
+
+        $completedTasks = Home::all();
+
+        $clicked = false;
         
         return view('home', [
             'tasks' => $tasks,
             'user' => $user,
+            'completedTasks' => $completedTasks,
+            'clicked' => $clicked,
         ]);
     }
 
@@ -44,10 +50,14 @@ class HomeController extends Controller
         ->get();
 
         $user = Auth::user();
+
+        $completedTasks = Home::where('user_id', 500)
+        ->get();
         
         return view('home', [
             'tasks' => $tasks,
             'user' => $user,
+            'completedTasks' => $completedTasks,
         ]);
     }
 
