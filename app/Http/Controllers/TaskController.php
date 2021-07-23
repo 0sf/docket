@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\NewTask;
 
@@ -56,8 +57,8 @@ class TaskController extends Controller
         $task->content=request('content');
         $task->save();
 
-        return redirect('/task')->with('success','task created');
- 
+        return redirect('/home')->with('success','task created');
+
     }
 
     /**
@@ -80,7 +81,8 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task=NewTask::findOrFail($id);
+        return view('task.edit',['task'=>$task]);
     }
 
     /**
@@ -90,9 +92,27 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'course' => 'required',
+            'title' => 'required||unique:new_tasks,title,'.$request->id,
+            'date' => 'required' ,
+            'time' => 'required',
+            'notification_type' => 'required',
+            'content' => 'required', 'max:200'
+        ]);
+
+        DB::table('new_tasks')->where('id',$request->id)->update([
+        'course'=>request('course'),
+        'title'=>request('title'),
+        'date'=>request('date'),
+        'time'=>request('time'),
+        'notification_type'=>request('notification_type'),
+        'content'=>request('content')
+        ]);
+
+        return redirect('/home')->with('success','task updated');
     }
 
     /**
@@ -103,7 +123,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        $item=Item::findOrFail($id);
-        $item->delete();
+        $task=NewTask::findOrFail($id);
+        $task->delete();
+
+
     }
 }
