@@ -99,7 +99,6 @@
             </div>
 
             @include('layouts.flash_messages')
-            @yield('content')
 
         </main>
     </div>
