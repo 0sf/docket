@@ -56,7 +56,9 @@ class TaskController extends Controller
         $task->notification_type=request('notification_type');
         $task->content=request('content');
         $task->save();
+
         return redirect('/home')->with('success','task created');
+
     }
 
     /**

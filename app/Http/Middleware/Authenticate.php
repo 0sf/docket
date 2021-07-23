@@ -14,8 +14,12 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
-            return route('login');
+        if (Auth::guard($guard)->check() && Auth::user()->role_id == 1) {
+            return redirect()->route('admin.dashboard');
+        } elseif(Auth::guard($guard)->check() && Auth::user()->role_id == 2){
+            return redirect()->route('user.dashboard');
+        } else {
+            return $next($request);
         }
     }
 }
