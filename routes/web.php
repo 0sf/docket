@@ -31,6 +31,7 @@ Route::get('/show', function () {
     return view('profile.show');
 });
 
+
 Route::post('/profile', [ProfileController::class, 'update']);
 Route::get('/edit/{id}','App\Http\Controllers\ProfileController@edit')->name('profile.edit');
 Route::post('/update','App\Http\Controllers\ProfileController@update')->name('profile.update');

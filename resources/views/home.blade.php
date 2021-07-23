@@ -1,6 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
+
+@include('sidebar.dashboard')
+
     <div class="container">
 
         @foreach ($tasks as $task)
@@ -51,6 +53,7 @@
     <div class=" card-footer">
         <div class=" row">
 
+
         <a class=" col-3 btn btn-info ml-5" href={{ url('task/edit/'.$task->id)}}>Edit</a>
 
         <button id="del" class=" col-3 btn btn-danger ml-5">Delete</button>
@@ -88,8 +91,6 @@
     window.location.replace("{{ url('/home')}}");
   }
 })}
-
-)
 
 </script>
 @endif
