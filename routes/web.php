@@ -48,4 +48,8 @@ Route::get('/task',[App\Http\Controllers\TaskController::class, 'index']);
 
 Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create']);
 Route::post('/task',[App\Http\Controllers\TaskController::class, 'store']);
+Route::get('/task/edit/{id}',[App\Http\Controllers\TaskController::class, 'edit']);
+Route::post('/home',[App\Http\Controllers\TaskController::class, 'update'])->name('task.update');
+Route::get('task/delete/{id}',[App\Http\Controllers\TaskController::class, 'destroy'])->name('task.destroy');
+
 

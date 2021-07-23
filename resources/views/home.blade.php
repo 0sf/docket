@@ -2,26 +2,6 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card text-white bg-success">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
 
         @foreach ($tasks as $task)
             <div class="row justify-content-center mt-5">
@@ -68,6 +48,14 @@
         {{ $clicked = false }}
         </form>
     </div>
+    <div class=" card-footer">
+        <div class=" row">
+
+        <a class=" col-3 btn btn-info ml-5" href={{ url('task/edit/'.$task->id)}}>Edit</a>
+
+        <button id="del" class=" col-3 btn btn-danger ml-5">Delete</button>
+        </div>
+    </div>
     </div>
     </div>
     </div>
@@ -76,4 +64,33 @@
 {{-- <p class="task_created">{{ session('message') }}</p> --}}
 
     </div>
+@if ($tasks->count()>0)
+    <script>
+    var del_btn=$('#del')
+    del_btn.click(()=>{Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+    del_btn.attr(href="{{'profile.destroy'}}")
+    window.location.replace("{{ url('task/delete/'.$task->id)}}");
+    window.location.replace("{{ url('/home')}}");
+  }
+})}
+
+)
+
+</script>
+@endif
 @endsection
