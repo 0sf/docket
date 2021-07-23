@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 @include('sidebar.dashboard')
 
     <div class="container">
@@ -52,6 +53,7 @@
     <div class=" card-footer">
         <div class=" row">
 
+
         <a class=" col-3 btn btn-info ml-5" href={{ url('task/edit/'.$task->id)}}>Edit</a>
 
         <button id="del" class=" col-3 btn btn-danger ml-5">Delete</button>
@@ -76,6 +78,7 @@
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
   confirmButtonText: 'Yes, delete it!'
+
 }).then((result) => {
   if (result.isConfirmed) {
     Swal.fire(
@@ -88,7 +91,7 @@
     window.location.replace("{{ url('/home')}}");
   }
 })}
-)
+
 </script>
 @endif
 @endsection

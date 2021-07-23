@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Types\Nullable;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -15,6 +17,11 @@ class ProfileController extends Controller
     {
         return view('login');
     }
+    public function store(Request $request)
+    {
+
+    }
+
     public function show($id)
     {
         $users=User::find($id);
@@ -25,22 +32,27 @@ class ProfileController extends Controller
         $profiles=User::find($id);
         return view('profile.profile',['profiles'=>$profiles]);
     }
-    public function update(Request $request){
+    public function update(Request $request)
+    {
+        $filename="";
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'index_no' => 'required|unique:users,index_no,'.$request->id,
+            'email' => 'nullable|email:rfc,dns' ,
+            'faculty' => 'required',
+            'department' => 'required',
+            'phone_no' => 'nullable|size:10',
 
-        // $filename="";
+        ]);
+        //dd($validatedData);
         if($request->hasFile('image')){
-            $filename="";
             $file = $request->file('image');
             $extension=$file->getClientOriginalExtension();
             $filename=time().'.'.$extension;
             $file->move('upload/profiles/',$filename);
         }
-        else{
-            return redirect('/show');
-        }
 
         DB::table('users')->where('id',$request->id)->update([
-
             'name'=>$request->name,
             'index_no'=>$request->index_no,
             'email'=>$request->email,
@@ -48,8 +60,12 @@ class ProfileController extends Controller
             'department'=>$request->department,
             'phone_no'=>$request->phone_no,
             'image'=>$filename
-
         ]);
+
+
+
+        // $filename="";
+
 
         Session::flash('success','Details has been updated successfully!');
         return redirect('/show');

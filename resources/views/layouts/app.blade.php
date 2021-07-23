@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -88,14 +90,32 @@
             </div>
         </nav>
         <main class="py-4">
+
             <div class="container-fluid">
                 <div class="row min-vh-100 flex-column flex-md-row">
                     {{-- content layout --}}
                     @yield('content')
                 </div>
             </div>
+
+            @include('layouts.flash_messages')
+            @yield('content')
+
         </main>
     </div>
+
 </body>
 
+
 </html>
+
+<script>
+    function toggleFunction(){
+        var toggleButton = document.getElementsByClassName('toggleButton');
+        if(toggleButton.innerHTML === 'Mark as Done'){
+            toggleButton.innerHTML = 'Completed';
+        }
+    }
+</script>
+</html>
+
