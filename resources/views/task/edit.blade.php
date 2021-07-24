@@ -7,7 +7,7 @@
     <h3> {{$task->title}} Task - Edit</h3>
   </div>
   <div class="card-body">
-  <form action="{{route('task.update')}}" method="POST">
+  <form action="/home" method="POST">
   @csrf
   <div class="form-group">
       <input  type="hidden" name="id" value="{{$task->id}}">

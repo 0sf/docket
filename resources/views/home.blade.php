@@ -67,7 +67,7 @@
 {{-- <p class="task_created">{{ session('message') }}</p> --}}
 
     </div>
-@if ($tasks->count()>0)
+@if ($tasks->count() > 0)
     <script>
     var del_btn=$('#del')
     del_btn.click(()=>{Swal.fire({
@@ -90,8 +90,9 @@
     window.location.replace("{{ url('task/delete/'.$task->id)}}");
     window.location.replace("{{ url('/home')}}");
   }
-})}
+})});
 
 </script>
 @endif
+
 @endsection
