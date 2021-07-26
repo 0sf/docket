@@ -89,18 +89,18 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <!-- <main class="py-4"> -->
 
-            <div class="container-fluid">
-                <div class="row min-vh-100 flex-column flex-md-row">
-                    {{-- content layout --}}
-                    @yield('content')
-                </div>
+        <div class="container-fluid">
+            <div class="row min-vh-100 flex-column flex-md-row">
+                {{-- content layout --}}
+                @yield('content')
             </div>
+        </div>
 
-            @include('layouts.flash_messages')
+        @include('layouts.flash_messages')
 
-        </main>
+        <!-- </main> -->
     </div>
 
 </body>
@@ -109,12 +109,18 @@
 </html>
 
 <script>
-    function toggleFunction(){
+    function toggleFunction() {
         var toggleButton = document.getElementsByClassName('toggleButton');
-        if(toggleButton.innerHTML === 'Mark as Done'){
+        if (toggleButton.innerHTML === 'Mark as Done') {
             toggleButton.innerHTML = 'Completed';
         }
     }
-</script>
-</html>
+    var activeNavItem = $('.nav-item');
 
+    activeNavItem.click(function() {
+        activeNavItem.removeClass('active');
+        $(this).addClass('active');
+    });
+</script>
+
+</html>
