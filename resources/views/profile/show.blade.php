@@ -4,7 +4,7 @@
 @include('sidebar.dashboard')
 
 
-<div class="container-fluid" style="position: absolute; top:10%; left:15%; width:60%">
+<div class="container-fluid" style="position: absolute; top:15%; left:15%; width:60%">
 
     <div class="row">
         <div class="col-lg-3">
