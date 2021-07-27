@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
+@include('sidebar.dashboard')
 
-<div class="card container" >
+<div class="card container" style="position: absolute; top:25%; left:20%; width:75%">
   <div class="card-header text-center">
     <h3> New Task</h3>
   </div>
