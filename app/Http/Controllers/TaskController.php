@@ -17,6 +17,7 @@ class TaskController extends Controller
         //$items_latest=Item:latest();
         return View('task.index')->with('tasks',$task);
 
+
     }
 
     /**
@@ -71,6 +72,7 @@ class TaskController extends Controller
     {
          $item=NewTask::findOrFail($id);
         return view('task.show',['task'=>$task] );
+        
     }
 
     /**

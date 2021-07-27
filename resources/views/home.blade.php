@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
 @include('sidebar.dashboard')
 
-<div class="container" style="position:absolute; top:11%; left:5%">
 
+<div class="container" style="position: absolute; top:13%; left:10%">
     @foreach ($tasks as $task)
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
@@ -53,7 +52,7 @@
 
                         <a class=" col-3 btn btn-info ml-5" href={{ url('task/edit/'.$task->id)}}>Edit</a>
 
-                        <button id="del" class=" col-3 btn btn-danger ml-5">Delete</button>
+                        <button class=" del col-3 btn btn-danger ml-5">Delete</button>
                     </div>
                 </div>
             </div>
@@ -64,9 +63,9 @@
     {{-- <p class="task_created">{{ session('message') }}</p> --}}
 
 </div>
-@if ($tasks->count() > 0)
+@if (count($tasks) > 0)
 <script>
-    var del_btn = $('#del')
+    var del_btn = $('.del')
     del_btn.click(() => {
         Swal.fire({
             title: 'Are you sure?',
@@ -84,7 +83,7 @@
                     'Your file has been deleted.',
                     'success'
                 )
-                del_btn.attr(href = "{{'profile.destroy'}}")
+                del_btn.attr(href = "{{'task.destroy'}}")
                 window.location.replace("{{ url('task/delete/'.$task->id)}}");
                 window.location.replace("{{ url('/home')}}");
             }

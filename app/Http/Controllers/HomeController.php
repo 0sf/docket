@@ -18,25 +18,25 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    } 
+    }
 
     public function index()
     {
-        $tasks = NewTask::orderBy('date')
-        ->get();
+        $tasks = NewTask::orderBy('date')->get();
 
         $user = Auth::user();
 
         $completedTasks = Home::all();
 
         $clicked = false;
-        
+
         return view('home', [
             'tasks' => $tasks,
             'user' => $user,
             'completedTasks' => $completedTasks,
             'clicked' => $clicked,
         ]);
+        
     }
 
     /**
@@ -53,7 +53,7 @@ class HomeController extends Controller
 
         $completedTasks = Home::where('user_id', 500)
         ->get();
-        
+
         return view('home', [
             'tasks' => $tasks,
             'user' => $user,

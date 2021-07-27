@@ -20,7 +20,7 @@
             <!-- <img src={{('/upload/profiles/'.Auth::user()->image)}} class="img-thumbnail" width="400" style="position: relative; left:800px; top:50px"> -->
         </div>
 
-        <div class="col-lg-9 mt-3" style="left:20%">
+        <div class="col-lg-9 mt-3" style="left:18%">
             <table style="font-size: large; margin-left:30%;  margin-top:5%;">
                 <tr style="line-height: 50px;">
                     <td><b>Name</b></td>
@@ -57,7 +57,7 @@
                 </tr>
             </table><br>
 
-            <div class="col-lg-6" style="left: 15%;">
+            <div class="col-lg-6" style="left: 20%;">
                 <div class="row" style="position:relative; text-align:center;">
                     <div class="col-sm-6 mt-3">
                         <a href={{ url('edit/'.Auth::user()->id)}}><button class="btn btn-lg btn-success btn-block">Edit</button></a>

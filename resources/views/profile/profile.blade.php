@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@include('sidebar.dashboard')
 
 <link rel="stylesheet" href="{{ asset('css/profileStyle.css') }}">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
@@ -10,7 +9,7 @@
         {{ __('Profile') }}
     </h2>
 </x-slot>
-<div class="container-fluid" style="position: absolute; top:13%; left:18%; width:80%">
+<div class="container-fluid" >
     <form data-parsley-validate class="" method="POST" action="{{route('profile.update')}}" enctype="multipart/form-data">
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">

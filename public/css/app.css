@@ -175,6 +175,7 @@ a {
     color: #3490dc;
     text-decoration: none;
     background-color: transparent;
+    font-size: 110%;
 }
 
 a:hover {
