@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-@include('sidebar.dashboard')
-
-
 <div class="container-fluid">
-
 <div class="row">
     <div class="col-md-4">
      @if (Auth::user()->image)
@@ -14,7 +10,7 @@
 
                     @else
 
-                    <img class="no-image" width="350" style="position: relative; left:25%;  top:15%"  src="/upload/default/default.png" alt="No Picture">
+                    <img class="no-image" width="350" style="position: relative;   top:15%"  src="/upload/default/default.png" alt="No Picture">
 
                     @endif
         <!-- <img src={{('/upload/profiles/'.Auth::user()->image)}} class="img-thumbnail" width="400" style="position: relative; left:800px; top:50px"> -->
