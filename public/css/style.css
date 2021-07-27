@@ -27,7 +27,7 @@ body {
 .forms form {
     padding: 30px;
 }
-#login {
+#signup {
     display: none;
 }
 .forms .tab-group {
@@ -63,5 +63,5 @@ body {
 .forms .tab-group .active a {
     background: #fff;
     color: #444;
-    border-top: 3px solid #73cf41;
+    border-top: 3px solid #38b2ee;
 }
