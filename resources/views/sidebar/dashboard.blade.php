@@ -1,4 +1,4 @@
-<aside class="col-12 col-md-2 p-0 flex-shrink-1" style="background-color:black; ">
+<aside class="col-8  p-0 flex-shrink-1 h-100" style="background-color:black; ">
     <nav class="navbar navbar-expand  flex-md-column flex-row align-items-start py-2" style="background-color:black;">
         <div class="collapse navbar-collapse ">
             <ul class="navbar-nav flex-md-column flex-row w-100 justify-content-between">

@@ -90,15 +90,20 @@
             </div>
         </nav>
         <!-- <main class="py-4"> -->
-
+        @include('layouts.flash_messages')
         <div class="container-fluid">
-            <div class="row min-vh-100 flex-column flex-md-row">
-                {{-- content layout --}}
-                @yield('content')
+            <div class="row">
+                <div class="col-4 min-vh-100">
+            @include('sidebar.dashboard')
+            </div>
+            <div class="col-7" >
+            {{-- content layout --}}
+            @yield('content')
+            </div>
             </div>
         </div>
 
-        @include('layouts.flash_messages')
+
 
         <!-- </main> -->
     </div>
