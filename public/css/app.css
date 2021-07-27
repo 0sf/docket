@@ -3617,6 +3617,7 @@ input[type="button"].btn-block {
     clear: both;
     font-weight: 400;
     color: #212529;
+    color: black;
     text-align: inherit;
     white-space: nowrap;
     background-color: transparent;
@@ -4535,12 +4536,6 @@ input[type="button"].btn-block {
     color: #495057;
     background-color: #f8fafc;
     border-color: #dee2e6 #dee2e6 #f8fafc;
-}
-/* .nav-link.active {
-    color: white;
-} */
-.nav-item.active a {
-    color: white;
 }
 
 .nav-tabs .dropdown-menu {

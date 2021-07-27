@@ -91,14 +91,16 @@
         </nav>
         <!-- <main class="py-4"> -->
 
+        @include('layouts.flash_messages')
         <div class="container-fluid">
+
             <div class="row min-vh-100 flex-column flex-md-row">
                 {{-- content layout --}}
                 @yield('content')
             </div>
         </div>
 
-        @include('layouts.flash_messages')
+        <!-- @include('layouts.flash_messages') -->
 
         <!-- </main> -->
     </div>
@@ -115,12 +117,6 @@
             toggleButton.innerHTML = 'Completed';
         }
     }
-    var activeNavItem = $('.nav-item');
-
-    activeNavItem.click(function() {
-        activeNavItem.removeClass('active');
-        $(this).addClass('active');
-    });
 </script>
 
 </html>
