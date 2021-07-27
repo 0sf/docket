@@ -2,11 +2,11 @@
 @section('content')
 @include('sidebar.dashboard')
 
-<div class="card container" style="position: absolute; top:25%; left:20%; width:75%">
-  <div class="card-header text-center">
+<div class="card container" style="position: absolute; top:25%; left:20%; width:75%; background-color:#afdbf2 ">
+  <div class="card-header text-center" style="background-color:#227CA0; color:white">
     <h3> New Task</h3>
   </div>
-  <div class="card-body">
+  <div class="card-body" style="background-color:  #afdbf2 ;">
     <form action="/task" method="POST">
       @csrf
       <div class="form-group">

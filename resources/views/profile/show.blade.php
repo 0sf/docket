@@ -60,10 +60,10 @@
             <div class="col-lg-6" style="left: 20%;">
                 <div class="row" style="position:relative; text-align:center;">
                     <div class="col-sm-6 mt-3">
-                        <a href={{ url('edit/'.Auth::user()->id)}}><button class="btn btn-lg btn-success btn-block">Edit</button></a>
+                        <a href={{ url('edit/'.Auth::user()->id)}}><button class="btn btn-lg btn-block" style="background-color:#288D1F; color:white">Edit</button></a>
                     </div>
                     <div class="col-sm-6 mt-3">
-                        <a id="del" class="btn btn-danger btn-lg btn-block">Delete</a>
+                        <a id="del" class="btn btn-lg btn-block" style="background-color:#a30c0c; color:white">Delete</a>
                     </div>
 
                 </div>

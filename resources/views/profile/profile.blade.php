@@ -9,7 +9,7 @@
         {{ __('Profile') }}
     </h2>
 </x-slot>
-<div class="container-fluid" >
+<div class="container-fluid">
     <form data-parsley-validate class="" method="POST" action="{{route('profile.update')}}" enctype="multipart/form-data">
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
@@ -78,8 +78,8 @@
                             </div>
                         </div>
 
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" value="update">Save Profile</button></div>
-                        <div class="mt-5 text-center"><a href="/show" class="btn btn-primary profile-button" type="submit">Skip</a></div>
+                        <div class="mt-5 text-center"><button class="btn profile-button" style="background-color:#193974; color:white" type="submit" value="update">Save Profile</button></div>
+                        <div class="mt-5 text-center"><a href="/show" class="btn profile-button" style="background-color: #0d76a9 ; color:white" type="submit">Skip</a></div>
                     </div>
                 </div>
 

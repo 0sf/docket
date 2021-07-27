@@ -3,12 +3,12 @@
 @include('sidebar.dashboard')
 
 
-<div class="container" style="position: absolute; top:13%; left:10%">
+<div class="container" style="position: absolute; top:20%; left:10%; width:85%">
     @foreach ($tasks as $task)
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <div class="card border-success" style="border-radius: 30pt">
-                <div class="card-header bg-success" style="border-top-left-radius: 30pt; border-top-right-radius: 30pt;">
+            <div class="card " style="border-radius: 30pt; border-color:#4889A3">
+                <div class="card-header" style="border-top-left-radius: 30pt; border-top-right-radius: 30pt; background-color:#227CA0">
                     <div class="row">
                         <div class="col-md-2">
                             <img src="..." alt="..." class="img-thumbnail">
@@ -41,7 +41,7 @@
                         @endif
                         @endforeach
                         @if ($clicked == false)
-                        <button type="submit" class="btn btn-primary float-right bg-success toggleButton" onclick="toggleFunction()">Mark as Done</button>
+                        <button type="submit" class="btn btn-primary float-right toggleButton" style="background-color: #193974" onclick="toggleFunction()">Mark as Done</button>
                         @endif
                         {{ $clicked = false }}
                     </form>
@@ -50,7 +50,7 @@
                     <div class=" row">
 
 
-                        <a class=" col-3 btn btn-info ml-5" href={{ url('task/edit/'.$task->id)}}>Edit</a>
+                        <a class=" col-3 btn btn-info ml-5" style="background-color:#288D1F; color:white" href={{ url('task/edit/'.$task->id)}}>Edit</a>
 
                         <button class=" del col-3 btn btn-danger ml-5">Delete</button>
                     </div>
