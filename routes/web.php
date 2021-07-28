@@ -47,7 +47,7 @@ Route::group(['as'=>'admin.','namespace'=>'Admin','middleware'=>['auth','admin']
     Route::get('/task/edit/{id}',[App\Http\Controllers\TaskController::class, 'edit']);
     Route::post('/home',[App\Http\Controllers\TaskController::class, 'update'])->name('task.update');
     Route::get('task/delete/{id}',[App\Http\Controllers\TaskController::class, 'destroy'])->name('task.destroy');
-    Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create']);
+    Route::get('ref/create_task',[App\Http\Controllers\TaskController::class, 'create'])->name('ref.task.create');
 });
 Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=>['auth','user']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');

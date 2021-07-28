@@ -46,15 +46,20 @@
                         {{ $clicked = false }}
                     </form>
                 </div>
+
                 <div class=" card-footer">
+                @if ($user->role_id==1)
                     <div class=" row">
 
 
                         <a class=" col-3 btn btn-info ml-5" style="background-color:#288D1F; color:white" href={{ url('task/edit/'.$task->id)}}>Edit</a>
 
                         <button class=" del col-3 btn btn-danger ml-5">Delete</button>
+
                     </div>
+                    @endif
                 </div>
+
             </div>
         </div>
     </div>

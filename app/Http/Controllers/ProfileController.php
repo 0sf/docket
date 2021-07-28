@@ -13,6 +13,8 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
+ 
+
     public function create()
     {
         return view('login');
@@ -25,7 +27,7 @@ class ProfileController extends Controller
     public function show($id)
     {
         $users=User::find($id);
-        return view('profile.show')->with('user',$users);
+        return view('profile.show',['user'=>$user]);
     }
 
     public function edit($id){
@@ -68,7 +70,7 @@ class ProfileController extends Controller
 
 
         Session::flash('success','Details has been updated successfully!');
-        return redirect('/show');
+        return redirect('/show',['user'=>$user]);
     }
     public function destroy($id)
     {
