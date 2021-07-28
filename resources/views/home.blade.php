@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if (Auth::user()->role_id == 1)
 @include('sidebar.dashboard')
-
-
+@else
+@include('sidebar.dashboardUser')
+@endif
 <div class="container" style="position: absolute; top:20%; left:10%; width:85%">
     @foreach ($tasks as $task)
     <div class="row justify-content-center mt-5">
@@ -11,7 +13,8 @@
                 <div class="card-header" style="border-top-left-radius: 30pt; border-top-right-radius: 30pt; background-color:#227CA0">
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="..." alt="..." class="img-thumbnail">
+                            <!-- <img src="..." alt="..." class="img-thumbnail"> -->
+                            <i class="fa fa-bell" aria-hidden="true" style=""></i>
                         </div>
                         <div class="col-md-6 float-left text-light">
                             <h5 class="font-weight-bold">Assignment {{ $task->id }}</h5>
@@ -48,7 +51,7 @@
                 </div>
 
                 <div class=" card-footer">
-                @if ($user->role_id==1)
+                    @if ($user->role_id==1)
                     <div class=" row">
 
 

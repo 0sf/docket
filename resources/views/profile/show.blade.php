@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
+@if (Auth::user()->role_id == 1)
 @include('sidebar.dashboard')
+@else
+@include('sidebar.dashboardUser')
+@endif
 
 
 <div class="container-fluid" style="position: absolute; top:20%; left:15%; width:60%">
