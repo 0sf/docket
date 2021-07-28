@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card container mt-3">
-  <div class="card-header text-center">
+@include('sidebar.dashboard')
+<div class="card container mt-3" style="position: absolute; top:27%; left:20%; width:75%; background-color:#afdbf2 ">
+  <div class="card-header text-center" style="background-color:#227CA0; color:white">
     <h3> {{$task->title}} Task - Edit</h3>
   </div>
-  <div class="card-body">
+  <div class="card-body" style="background-color:#afdbf2 ;">
     <form action="/home" method="POST">
       @csrf
       <div class="form-group">
