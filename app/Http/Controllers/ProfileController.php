@@ -13,7 +13,7 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
- 
+
 
     public function create()
     {
@@ -70,7 +70,7 @@ class ProfileController extends Controller
 
 
         Session::flash('success','Details has been updated successfully!');
-        return redirect('/show',['user'=>$user]);
+        return redirect('/show');
     }
     public function destroy($id)
     {
