@@ -69,10 +69,24 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        $completedTasks = Home::create([
+        /**$completedTasks = Home::create([
             'user_id' => $request->input('user_id'),
             'task_id' => $request->input('task_id')
         ]);
+
+        return redirect('/home'); */
+
+        $completedTasks = new Home();
+        $completedTasks->user_id=request('user_id');
+        $completedTasks->task_id-request('task_id');
+        /**$task=new NewTask();
+        $task->course=request('course');
+        $task->title=request('title');
+        $task->date=request('date');
+        $task->time=request('time');
+        $task->notification_type=request('notification_type');
+        $task->content=request('content'); */
+        $completedTasks->save();
 
         return redirect('/home');
     }

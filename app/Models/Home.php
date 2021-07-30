@@ -11,5 +11,5 @@ class Home extends Model
 
     protected $table = 'homes';
     public $timestaps = false;
-    public $fillable = ['user_id', 'task_id',];
+    public $fillable = ['user_id', 'task_id'];
 }

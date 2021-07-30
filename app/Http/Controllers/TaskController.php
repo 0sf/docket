@@ -58,7 +58,7 @@ class TaskController extends Controller
         $task->content=request('content');
         $task->save();
 
-        return redirect('/home')->with('success','task created');
+        return redirect('/task')->with('success','task created');
 
     }
 

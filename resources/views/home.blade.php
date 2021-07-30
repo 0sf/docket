@@ -31,7 +31,8 @@
                     <h5 class="card-title font-weight-bold">{{ $task->title }}</h5>
                     <p class="card-text" aria-placeholder="Description">{{ $task->content }}</p>
                     <form action="/home" method="POST">
-                        @csrf
+                        <input type="hidden" value="{{csrf_token()}}" name="_token" id="token">
+                        
                         <input type="hidden" name="user_id" value="{{ $user->id }}">
                         <input type="hidden" name="task_id" value="{{ $task->id }}">
                         @foreach ($completedTasks as $completedTask)
