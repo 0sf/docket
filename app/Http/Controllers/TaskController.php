@@ -5,18 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\NewTask;
+use App\Models\Home;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $task=NewTask::orderBy('date')->get();
-        //$item_where=Item::where('type','gg')->get();
-        //get all the items
-        //$items = Item::all();
-        //$items_latest=Item:latest();
-        return View('task.index')->with('tasks',$task);
+        $tasks = NewTask::orderBy('date')->get();
 
+        $user = Auth::user();
+
+        $completedTasks = Home::all();
+
+        $clicked = false;
+
+        return view('home', [
+            'tasks' => $tasks,
+            'user' => $user,
+            'completedTasks' => $completedTasks,
+            'clicked' => $clicked,
+        ]);
 
     }
 
@@ -38,6 +49,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
 
         $validatedData = $request->validate([
             'course' => 'required',
@@ -62,6 +74,23 @@ class TaskController extends Controller
 
     }
 
+
+
+    public function markAsDoneStore(Request $request)
+    {
+        $tasks = NewTask::orderBy('date')->get();
+        $user = Auth::user();
+        $completedTasks=Home::all();
+
+        $mark=new Home();
+        $mark->user_id=request('user_id');
+        $mark->task_id=request('task_id');
+        $mark->save();
+
+        return redirect('/home');
+
+    }
+
     /**
      * Display the specified resource.
      *
@@ -72,7 +101,7 @@ class TaskController extends Controller
     {
          $item=NewTask::findOrFail($id);
         return view('task.show',['task'=>$task] );
-        
+
     }
 
     /**

@@ -36,12 +36,13 @@ Route::get('/delete/{id}','App\Http\Controllers\ProfileController@destroy')->nam
 
 Auth::routes();
 
-Route::resource('/home', HomeController::class)->name('*','home');
+Route::get('/home', [App\Http\Controllers\TaskController::class, 'index']);
+Route::post('/home/store', [App\Http\Controllers\TaskController::class, 'markAsDoneStore'])->name('home.mark');
 
 
 Route::group(['as'=>'admin.','namespace'=>'Admin','middleware'=>['auth','admin']], function () {
 
-   
+
     Route::get('/task/{id}',[App\Http\Controllers\ItemController::class, 'show']);
     Route::post('task',[App\Http\Controllers\TaskController::class, 'store']);
     Route::get('/task/edit/{id}',[App\Http\Controllers\TaskController::class, 'edit']);

@@ -6,6 +6,7 @@
 @include('sidebar.dashboardUser')
 @endif
 <div class="container" style="position: absolute; top:20%; left:10%; width:85%">
+
     @foreach ($tasks as $task)
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
@@ -30,11 +31,12 @@
                     <img src="">
                     <h5 class="card-title font-weight-bold">{{ $task->title }}</h5>
                     <p class="card-text" aria-placeholder="Description">{{ $task->content }}</p>
-                    <form action="/home" method="POST">
+                    <form method="post" action="{{route('home.mark')}}" >
                         @csrf
                         <input type="hidden" name="user_id" value="{{ $user->id }}">
                         <input type="hidden" name="task_id" value="{{ $task->id }}">
                         @foreach ($completedTasks as $completedTask)
+                    
                         @if ($user->id == $completedTask->user_id && $task->id == $completedTask->task_id)
                         @php
                         $clicked = true
@@ -53,10 +55,7 @@
                 <div class=" card-footer">
                     @if ($user->role_id==1)
                     <div class=" row">
-
-
                         <a class=" col-3 btn btn-info ml-5" style="background-color:#288D1F; color:white" href={{ url('task/edit/'.$task->id)}}>Edit</a>
-
                         <button class=" del col-3 btn btn-danger ml-5">Delete</button>
 
                     </div>
