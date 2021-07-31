@@ -1,6 +1,5 @@
-
-<aside class="col-12 col-md-2 p-0 flex-shrink-1" style="background-color: black; height:150vh;">
-    <nav class="navbar navbar-expand  flex-md-column flex-row align-items-start py-2" style="background-color: black;">
+<aside class="col-12 col-md-2 p-0 flex-shrink-1 " style="background-color: black; height:300vh;">
+    <nav class="navbar navbar-expand fixed-top flex-md-column flex-row align-items-start py-2 col-md-2" style="background-color: black; position:fixed; top:10%">
         <div class="collapse navbar-collapse ">
             <ul class="navbar-nav flex-md-column flex-row w-100 justify-content-between">
                 <br>
@@ -12,7 +11,7 @@
                 <li class="nav-item">
                     <a class="nav-link pl-0 text-nowrap" href="{{ url('/ref/create_task') }}"><i class="fa fa-bullseye fa-fw"></i> <span class="font-weight-bold">Create</span></a><br>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link pl-0 text-nowrap" href="{{ url('/done') }}"><i class="fa fa-bullseye fa-fw"></i> <span class="font-weight-bold">Done</span></a><br>
                 </li>
