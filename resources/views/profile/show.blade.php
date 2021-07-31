@@ -8,7 +8,7 @@
 @endif
 
 
-<div class="container-fluid" style="position: absolute; top:20%; left:15%; width:60%">
+<div class="container-fluid position-absolute" style=" top:10%; left:20%; width:60%">
 
     <div class="row">
         <div class="col-lg-3">

@@ -2,7 +2,7 @@
 @section('content')
 @include('sidebar.dashboard')
 
-<div class="card container" style="position: absolute; top:27%; left:20%; width:75%; background-color:#afdbf2 ">
+<div class="card container" style="position: absolute; top:12%; left:20%; width:75%; background-color:#afdbf2 ">
   <div class="card-header text-center" style="background-color:#227CA0; color:white">
     <h3> New Task</h3>
   </div>
