@@ -96,7 +96,9 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = NewTask::find($id);
+
+        return view('task.edit')->with('task', $task);
     }
 
     /**
@@ -108,7 +110,17 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = NewTask::where('id', $id)
+        ->update([
+            'course' => $request->input('course'),
+            'title' => $request->input('title'),
+            'time' => $request->input('time'),
+            'date' => $request->input('date'),
+            'notification_type' => $request->input('notification_type'),
+            'content' => $request->input('content'),
+        ]);
+
+        return redirect('/home');
     }
 
     /**
@@ -119,6 +131,13 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = NewTask::find($id);
+        $task->delete();
+
+        if(Home::find($id) != NULL){
+            Home::find($id)->delete();
+        }
+
+        return redirect('/home');
     }
 }

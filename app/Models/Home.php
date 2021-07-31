@@ -10,6 +10,7 @@ class Home extends Model
     use HasFactory;
 
     protected $table = 'homes';
+    protected $primaryKey = 'task_id';
     public $timestaps = false;
     public $fillable = ['user_id', 'task_id',];
 }

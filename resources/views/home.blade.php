@@ -54,13 +54,14 @@
                                 @foreach ($completedTasks as $completedTask)
                                     @if ($user->id == $completedTask->user_id && $task->id == $completedTask->task_id)
                                         @php
-                                            $clicked = true
+                                            $clicked = true;
                                         @endphp
-                                        <button type="" disabled='true' class="btn btn-primary float-right bg-success toggleButton"
+                                        <button type="" disabled='true'
+                                            class="btn btn-primary float-right bg-success toggleButton"
                                             onclick="toggleFunction()">Completed</button>
-                                     @break
-                                    @endif
-                                @endforeach
+                                    @break
+                                @endif
+        @endforeach
         @if ($clicked == false)
             <button type="submit" class="btn btn-primary float-right bg-success toggleButton"
                 onclick="toggleFunction()">Mark as Done</button>
@@ -68,12 +69,20 @@
         {{ $clicked = false }}
         </form>
     </div>
+    <div class="card-footer">
+        <a href="home/{{ $task->id }}/edit"><button>Edit&rarr;</button></a>
+        <form action="/home/{{ $task->id }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit">Delete&rarr;</button>
+        </form>
+    </div>
     </div>
     </div>
     </div>
     @endforeach
 
-{{-- <p class="task_created">{{ session('message') }}</p> --}}
+    {{-- <p class="task_created">{{ session('message') }}</p> --}}
 
     </div>
 @endsection
