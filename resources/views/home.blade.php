@@ -39,12 +39,12 @@
                         @php
                         $clicked = true
                         @endphp
-                        <button type="" disabled='true' class="btn btn-primary float-right bg-success toggleButton" onclick="toggleFunction()">Completed</button>
+                        <button type="" disabled='true' class="btn btn-primary float-right bg-success toggleButton" >Completed</button>
                         @break
                         @endif
                         @endforeach
                         @if ($clicked == false)
-                        <button type="submit" class="btn btn-primary float-right toggleButton" style="background-color: #193974" onclick="toggleFunction()">Mark as Done</button>
+                        <button type="submit" class="btn btn-primary float-right toggleButton" style="background-color: #193974" >Mark as Done</button>
                         @endif
                         {{ $clicked = false }}
                     </form>
@@ -97,6 +97,7 @@
             }
         })
     });
+
 </script>
 @endif
 
