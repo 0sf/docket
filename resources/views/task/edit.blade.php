@@ -2,7 +2,7 @@
 
 @section('content')
 @include('sidebar.dashboard')
-<div class="card container mt-3" style="position: absolute; top:10%; left:20%; width:75%; background-color:#afdbf2 ">
+<div class="card container mt-3" style="position: absolute; top:22%; left:20%; width:75%; background-color:#afdbf2 ">
   <div class="card-header text-center" style="background-color:#227CA0; color:white">
     <h3> {{$task->title}} Task - Edit</h3>
   </div>

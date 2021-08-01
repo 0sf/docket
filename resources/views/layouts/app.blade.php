@@ -26,7 +26,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar sticky-top navbar-expand-lg shadow-lg" style="background-color: #181818;">
+        <nav class="navbar sticky-top navbar-expand-lg shadow-lg" style="background-color: #161819 ;">
             <div class="container-fluid">
                 @guest
                 <a class="navbar-brand" href="{{ url('/') }}">

@@ -1,5 +1,5 @@
-<aside class="col-12 col-md-2 p-0 flex-shrink-1 min-vh-100 position-fixed" style="background-color: black;">
-    <nav class="navbar navbar-expand fixed-top flex-md-column flex-row align-items-start py-2 col-md-2" style="background-color: black; position:fixed; top:10%">
+<aside class="col-12 col-md-2 p-0 flex-shrink-1 sticky-top" style="background-color: black; position:fixed; ">
+    <nav class="navbar navbar-expand sticky-top flex-row align-items-start py-2 col-md-2" style="background-color: black; top:11.5%; position:fixed;">
         <div class="collapse navbar-collapse ">
             <ul class="navbar-nav flex-md-column flex-row w-100 justify-content-between">
                 <br>

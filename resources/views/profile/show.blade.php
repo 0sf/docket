@@ -8,7 +8,7 @@
 @endif
 
 
-<div class="container-fluid position-absolute" style=" top:10%; left:20%; width:60%">
+<div class="container-fluid position-absolute" style=" top:25%; left:20%; width:60%">
 
     <div class="row">
         <div class="col-lg-3">
@@ -18,7 +18,7 @@
 
             @else
 
-            <img class="no-image" width="350" style="position: relative; left:25%;  top:15%; margin-left:5%" src="/upload/default/default.png" alt="No Picture">
+            <img class="no-image" width="350" style="position: relative; left:25%;  top:10%; margin-left:5%" src="/upload/default/default.png" alt="No Picture">
 
             @endif
             <!-- <img src={{('/upload/profiles/'.Auth::user()->image)}} class="img-thumbnail" width="400" style="position: relative; left:800px; top:50px"> -->

@@ -5,7 +5,7 @@
 @else
 @include('sidebar.dashboardUser')
 @endif
-<div class="container" style="position: absolute; top:20%; left:10%; width:85%">
+<div class="container" style="top:20%; left:10%; width:85%">
 
     @foreach ($tasks as $task)
     <div class="row justify-content-center mt-5">
@@ -31,22 +31,22 @@
                     <img src="">
                     <h5 class="card-title font-weight-bold">{{ $task->title }}</h5>
                     <p class="card-text" aria-placeholder="Description">{{ $task->content }}</p>
-                    <form method="post" action="{{route('home.mark')}}" >
+                    <form method="post" action="{{route('home.mark')}}">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ $user->id }}">
                         <input type="hidden" name="task_id" value="{{ $task->id }}">
                         @foreach ($completedTasks as $completedTask)
-                    
+
                         @if ($user->id == $completedTask->user_id && $task->id == $completedTask->task_id)
                         @php
                         $clicked = true
                         @endphp
-                        <button type="" disabled='true' class="btn btn-primary float-right bg-success toggleButton" >Completed</button>
+                        <button type="" disabled='true' class="btn btn-primary float-right bg-success toggleButton">Completed</button>
                         @break
                         @endif
                         @endforeach
                         @if ($clicked == false)
-                        <button type="submit" class="btn btn-primary float-right toggleButton" style="background-color: #193974" >Mark as Done</button>
+                        <button type="submit" class="btn btn-primary float-right toggleButton" style="background-color: #193974">Mark as Done</button>
                         @endif
                         {{ $clicked = false }}
                     </form>
@@ -96,7 +96,6 @@
             }
         })
     });
-
 </script>
 @endif
 
