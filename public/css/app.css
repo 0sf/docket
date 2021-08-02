@@ -11020,38 +11020,32 @@ a.text-dark:focus {
         border-color: #dee2e6;
     }
 }
-.side_bar{
-
+.side_bar {
 }
 
-
 @media (max-width: 576px) {
-    .side_bar{
-        min-height: 7% !important;
-
+    .side_bar {
+        min-height: 8% !important;
     }
-
- }
-
+}
 
 @media (max-width: 768px) {
-    .side_bar{
-        min-height: 7% !important;
-        position: absolute !important;
-
+    .side_bar {
+        min-height: 8% !important;
+        position: fixed !important;
     }
-    .side_bar div{
+    .side_bar div {
         justify-content: center;
         position: absolute !important;
     }
- }
-
+    .side_bar div ul li {
+        margin-left: 15%;
+        margin-left: 15%;
+    }
+}
 
 @media (min-width: 992px) {
-
- }
-
+}
 
 @media (min-width: 1200px) {
-
- }
+}

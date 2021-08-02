@@ -26,7 +26,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar sticky-top navbar-expand-lg shadow-lg " style="background-color: #161819 ;">
+        <nav class="navbar sticky-top navbar-expand-lg shadow-lg " style="background-color:  #0e0e0e;">
             <div class="container-fluid">
                 @guest
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -91,9 +91,9 @@
             </div>
         </nav>
         <!-- <main class="py-4"> -->
-<div >
-@include('layouts.flash_messages')
-</div>
+        <div>
+            @include('layouts.flash_messages')
+        </div>
 
         <div class="container-fluid">
 
