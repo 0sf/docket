@@ -8,13 +8,13 @@
 @endif
 
 
-<div class="container-fluid position-absolute" style=" top:14%; left:20%; width:60%">
+<div class="container-fluid" style=" top:14%; left:20%; width:60%">
 
     <div class="row">
         <div class="col-lg-3">
             @if (Auth::user()->image)
 
-            <img src="{{('/upload/profiles/'.Auth::user()->image)}}" class="rounded-circle mt-5" width="90%" style="position: relative; left:25%;  top:15%">
+            <img src="{{('/upload/profiles/'.Auth::user()->image)}}" class="rounded-circle mt-5" width="90%" style=" left:25%;  top:15%">
 
             @else
 
