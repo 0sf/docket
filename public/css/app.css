@@ -11025,13 +11025,13 @@ a.text-dark:focus {
 
 @media (max-width: 576px) {
     .side_bar {
-        min-height: 8% !important;
+        min-height: 7% !important;
     }
 }
 
 @media (max-width: 768px) {
     .side_bar {
-        min-height: 8% !important;
+        min-height: 7% !important;
         position: fixed !important;
     }
     .side_bar div {
@@ -11039,6 +11039,7 @@ a.text-dark:focus {
         position: absolute !important;
     }
     .side_bar div ul li {
+        margin-top: -2%;
         margin-left: 15%;
         margin-left: 15%;
     }
