@@ -11020,3 +11020,38 @@ a.text-dark:focus {
         border-color: #dee2e6;
     }
 }
+.side_bar{
+
+}
+
+
+@media (max-width: 576px) {
+    .side_bar{
+        min-height: 7% !important;
+
+    }
+
+ }
+
+
+@media (max-width: 768px) {
+    .side_bar{
+        min-height: 7% !important;
+        position: absolute !important;
+
+    }
+    .side_bar div{
+        justify-content: center;
+        position: absolute !important;
+    }
+ }
+
+
+@media (min-width: 992px) {
+
+ }
+
+
+@media (min-width: 1200px) {
+
+ }
