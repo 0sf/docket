@@ -11032,11 +11032,13 @@ a.text-dark:focus {
 @media (max-width: 768px) {
     .side_bar {
         min-height: 7% !important;
-        position: fixed !important;
+        position: absolute !important;
+
     }
     .side_bar div {
         justify-content: center;
         position: absolute !important;
+
     }
     .side_bar div ul li {
         margin-top: -2%;

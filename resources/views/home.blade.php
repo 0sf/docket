@@ -10,7 +10,7 @@
     @foreach ($tasks as $task)
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <div class="card " style="border-radius: 30pt; border-color:#4889A3">
+            <div class="card " style="border-radius: 30pt; border-color:#4889A3" >
                 <div class="card-header" style="border-top-left-radius: 30pt; border-top-right-radius: 30pt; background-color:#227CA0">
                     <div class="row">
                         <div class="col-md-2">
@@ -56,7 +56,7 @@
                     @if ($user->role_id==1)
                     <div class=" row">
                         <a class=" col-3 btn btn-info ml-5" style="background-color:#288D1F; color:white" href={{ url('task/edit/'.$task->id)}}>Edit</a>
-                        <button class=" del col-3 btn btn-danger ml-5">Delete</button>
+                        <input type="button" id="{{$task->id}}" class=" del col-3 btn btn-danger ml-5" value="Delete">
 
                     </div>
                     @endif
@@ -72,8 +72,11 @@
 </div>
 @if (count($tasks) > 0)
 <script>
-    var del_btn = $('.del')
-    del_btn.click(() => {
+    var idClicked=""
+    $("input").click((e) => {
+        var idClicked =e.target.id;
+        console.log(idClicked)
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -90,12 +93,15 @@
                     'Your file has been deleted.',
                     'success'
                 )
-                del_btn.attr(href = "{{'task.destroy'}}")
-                window.location.replace("{{ url('task/delete/'.$task->id)}}");
+
+                window.location.replace("task/delete/"+idClicked);
                 window.location.replace("{{ url('/home')}}");
             }
         })
     });
+
+
+
 </script>
 @endif
 
