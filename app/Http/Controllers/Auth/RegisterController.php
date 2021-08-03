@@ -31,6 +31,7 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/profile';
 
+
     /**
      * Create a new controller instance.
      *

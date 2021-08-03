@@ -21,12 +21,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar sticky-top navbar-expand-lg shadow-lg " style="background-color: #0e0e0e;">
+            <div class="container-fluid">
                 @guest
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Docket') }}
@@ -38,13 +39,13 @@
                 @endif
 
                 @else
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}" style="font-size: xx-large;">
                     {{ config('app.name', 'Docket') }}
                 </a>
                 @endguest
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -53,7 +54,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav " style="position:absolute; right:5%">
                         <!-- Authentication Links -->
                         @guest
                         <!-- <li class="nav-item">
@@ -66,7 +67,7 @@
                             @endif -->
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -75,9 +76,9 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="/show">
+                                <!-- <a class="dropdown-item" href="/show">
                                     Profile
-                                </a>
+                                </a> -->
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -89,18 +90,22 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
-
-            <div class="container-fluid">
-                <div class="row min-vh-100 flex-column flex-md-row">
-                    {{-- content layout --}}
-                    @yield('content')
-                </div>
-            </div>
-
+        <!-- <main class="py-4"> -->
+        <div>
             @include('layouts.flash_messages')
+        </div>
 
-        </main>
+        <div class="container-fluid">
+
+            <div class="row flex-column flex-md-row">
+                {{-- content layout --}}
+                @yield('content')
+            </div>
+        </div>
+
+        <!-- @include('layouts.flash_messages') -->
+
+        <!-- </main> -->
     </div>
 
 </body>
@@ -109,12 +114,12 @@
 </html>
 
 <script>
-    function toggleFunction(){
+    function toggleFunction() {
         var toggleButton = document.getElementsByClassName('toggleButton');
-        if(toggleButton.innerHTML === 'Mark as Done'){
+        if (toggleButton.innerHTML === 'Mark as Done') {
             toggleButton.innerHTML = 'Completed';
         }
     }
 </script>
-</html>
 
+</html>

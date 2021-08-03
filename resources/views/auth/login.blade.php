@@ -6,8 +6,8 @@
     <div class="row justify-content-center">
         <div class="forms">
             <ul class="tab-group">
-                <li class="tab active"><a href="#signup">Sign Up</a></li>
-                <li class="tab"><a href="#login">Log In</a></li>
+                <li class="tab"><a href="#signup">Sign Up</a></li>
+                <li class="tab active"><a href="#login">Log In</a></li>
             </ul>
             <!-- <div class="col-md-8"> -->
             <!-- <div class="card"> -->
@@ -151,7 +151,7 @@
             var href = $(this).attr('href');
             $('.forms > form').hide();
             $(href).fadeIn(500);
-            
+
         });
     });
 </script>
