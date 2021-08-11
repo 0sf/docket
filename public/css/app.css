@@ -4796,7 +4796,6 @@ input[type="button"].btn-block {
         flex-flow: row nowrap;
         justify-content: flex-start;
     }
-
     .navbar-expand-lg .navbar-nav {
         flex-direction: row;
     }
@@ -11033,12 +11032,10 @@ a.text-dark:focus {
     .side_bar {
         min-height: 7% !important;
         position: absolute !important;
-
     }
     .side_bar div {
         justify-content: center;
         position: absolute !important;
-
     }
     .side_bar div ul li {
         margin-top: -2%;
